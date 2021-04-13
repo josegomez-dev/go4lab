@@ -29,9 +29,10 @@
   box-sizing: border-box;
    margin: 0;
 }
+
 .banner {
-  height: 100vh;
-  display:flex;
+  height: 30vh;
+  display:flex; 
 }
 .banner__item {
   flex:1;
@@ -70,6 +71,13 @@
  transform: rotate(-90deg);
  transition: transform 0.3s;
 }
+
+@media only screen and (max-width: 600px) {
+  .only-for-web {
+    display: none;
+  }
+}
+
     </style>
 </head>
 <!--/head-->
@@ -169,8 +177,8 @@
                         Personal Finance, Smart Investing and Cryptos. <br> 
                         Online Software Programming Classes
                     </p>
-                    <a href="#" class="btn btn-common">Contact Us</a>
-                    <a href="#" class="btn"> <br> Internet as business infrastructure</a>
+                    <a target="_blank" href="https://wa.me/50662402974?text=Hi%20Jose, Go4Lab website seems to be interesting, can we talk about your services? I need some help..." class="btn btn-common">Contact Us</a>
+                    <a target="_blank" href="#" class="btn"> <br> Internet as business infrastructure</a>
                 </div>
 
                 <img width="300px" src="./svg/noun_buildings_1851404.svg" class="img-responsive slider-house"
@@ -242,7 +250,7 @@
                         <div class="col-sm-5 text-center wow fadeInRight" data-wow-duration="500ms"
                             data-wow-delay="300ms">
                             <div class="tour-button">
-                                <a href="#" class="btn btn-common-white">TAKE THE TOUR</a>
+                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSd7y5ayjyMQavHO1D-pYv_fJ1VBHiCldN3frB3EA1GCVPMqjg/viewform" class="btn btn-common-white">TAKE THE TOUR</a>
                             </div>
                         </div>
                     </div>
@@ -299,42 +307,9 @@
     </section>
     <!--/#features-->
 
-    <section id="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <p><img width="100px" src="svg/noun_success_2092028.svg"
-                                class="img-responsive world-success-top" alt=""></p>
-                        <p><img width="150px" src="svg/noun_world_2160122.svg"
-                                class="img-responsive world-success-bottom" alt=""></p>
-                        <h1 class="title">The biggest risk is not taking any risks</h1>
-                        <p>MARK ZUCKERBERG, CO-FOUNDER AND CEO OF FACEBOOK </p>
-                    </div>
-                    <!-- <div class="clients-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="col-xs-3 col-sm-3">
-                            <a href="#"><img src="images/logo.png" class="img-responsive" alt=""></a>
-                        </div>
-                        <div class="col-xs-3 col-sm-3">
-                            <a href="#"><img src="images/yago.png" class="img-responsive" alt=""></a>
-                        </div>
-                        <div class="col-xs-3 col-sm-3">
-                            <a href="#"><img src="images/logo.png" class="img-responsive" alt=""></a>
-                        </div>
-                        <div class="col-xs-3 col-sm-3">
-                            <a href="#"><img src="images/yago.png" class="img-responsive" alt=""></a>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/#clients-->
-
-
-    <div class="banner">
-        <div class="banner__item">
-            <h3 class="banner__title"><b>Technological Infrastructure</b></h3>
+    <div class="banner only-for-web">
+        <div class="banner__item only-for-web">
+            <h3 class="banner__title only-for-web"><b>Technological Infrastructure</b></h3>
             <ul>
                 <li>Servers</li>
                 <li>Remote Access</li>
@@ -377,6 +352,38 @@
     </div>
     
     <br><br><br>
+
+    <section id="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <p><img width="100px" src="svg/noun_success_2092028.svg"
+                                class="img-responsive world-success-top" alt=""></p>
+                        <p><img width="150px" src="svg/noun_world_2160122.svg"
+                                class="img-responsive world-success-bottom" alt=""></p>
+                        <h1 class="title">The biggest risk is not taking any risks</h1>
+                        <p>MARK ZUCKERBERG, CO-FOUNDER AND CEO OF FACEBOOK </p>
+                    </div>
+                    <!-- <div class="clients-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="col-xs-3 col-sm-3">
+                            <a href="#"><img src="images/logo.png" class="img-responsive" alt=""></a>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                            <a href="#"><img src="images/yago.png" class="img-responsive" alt=""></a>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                            <a href="#"><img src="images/logo.png" class="img-responsive" alt=""></a>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                            <a href="#"><img src="images/yago.png" class="img-responsive" alt=""></a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#clients-->
 
     <footer id="footer">
         <div class="container">
