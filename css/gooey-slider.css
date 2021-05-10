@@ -8,7 +8,6 @@
   bottom: 0;
   right: 0;
   padding: 10px;
-  font-size: 12px;
 }
 .inspiration img {
   width: 25px;
@@ -37,7 +36,7 @@ label.switch-theme {
   width: 100%;
   height: 100%;
   padding: 11px;
-  font-size: 30px;
+  font-size: 20px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
