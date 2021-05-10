@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.banner {
+  height: 25vh;
+  display: flex;
+}
+.banner__item {
+  flex: 1;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: flex-grow 0.3s;
+}
+.banner__item:hover {
+  flex-grow: 5;
+  cursor: pointer;
+}
+.banner__item:hover .banner__title {
+  transform: rotate(0);
+}
+.banner__item:nth-child(1) {
+  background: #afbfd2;
+}
+.banner__item:nth-child(2) {
+  background: #0f2136;
+}
+.banner__item:nth-child(3) {
+  background: #000;
+}
+.banner__item:nth-child(4) {
+  background: #0f2136;
+}
+.banner__item:nth-child(5) {
+  background: #afbfd2;
+}
+.banner__title {
+  margin: 0;
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+
+@media only screen and (max-width: 600px) {
+  .only-for-web {
+    display: none;
+  }
+}

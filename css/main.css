@@ -256,6 +256,9 @@ h3 {
   border: 0;
   margin-bottom: 0;
 }
+#header .dark-header {
+  background: black;
+}
 
 #header .navbar-toggle {
   margin-top: 20px;

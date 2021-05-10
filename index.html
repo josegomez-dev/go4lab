@@ -13,6 +13,8 @@
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/banner.css" rel="stylesheet">
+    <link href="css/gooey-slider.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -23,62 +25,169 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-
-    <style>
-* {
-  box-sizing: border-box;
-   margin: 0;
+        <style>
+            * {
+    margin: 0;
+    padding: 0;
 }
 
-.banner {
-  height: 25vh;
-  display:flex; 
-}
-.banner__item {
-  flex:1;
-  color:white;
-  font-weight:bold;
-  font-size: 1.2em;
-  display:flex;
-  justify-content: center;
-  align-items:center;
-  transition: flex-grow 0.3s;
-}
-.banner__item:hover {
-  flex-grow: 5;
-  cursor:pointer;
-}
-.banner__item:hover .banner__title {
-  transform: rotate(0);
-}
-.banner__item:nth-child(1){
-  background: #AFBFD2;
-}
-.banner__item:nth-child(2){
-  background:#0f2136;
-}
-.banner__item:nth-child(3){
-  background:#000;
-}
-.banner__item:nth-child(4){
-  background:#0f2136;
-}
-.banner__item:nth-child(5){
-  background:#AFBFD2;
-}
-.banner__title {
- margin: 0;
- transform: rotate(-90deg);
- transition: transform 0.3s;
+#wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 40vh;
+    background: #afbfd2;
+    position: relative;
 }
 
-@media only screen and (max-width: 600px) {
-  .only-for-web {
-    display: none;
-  }
+/* === Styling and Animating Silueta === */
+#silueta {
+    width: 100%;
+    height: 100vh;
+    max-height: 700px;
+    display: block;
+    position: absolute;
+    bottom: -10px;
 }
 
-    </style>
+#silueta.run-animation {
+    animation: movingSilueta 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes movingSilueta {
+    100% { transform: scale(.9) translate(20%, 5%); }
+}
+
+#path1,
+#path2,
+#holes {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3px;
+    stroke: rgb(23, 23, 23);
+    fill: rgb(255, 252, 213);
+    fill-opacity: 0;
+}
+
+#path1 {
+    stroke-dasharray: 1717;
+    stroke-dashoffset: 1717;
+}
+
+#path2 {
+    stroke-dasharray: 1505;
+    stroke-dashoffset: 1505;
+}
+
+#path1.run-animation,
+#path2.run-animation {
+    animation: lineAnimation 4s forwards linear, strokeHide 2s 3.2s forwards linear;
+}
+
+#holes {
+    stroke-width: 2px;
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+}
+
+#holes.run-animation {
+    animation: lineAnimation .5s 2s forwards linear, strokeHide 2s 3.2s forwards linear;
+}
+
+@keyframes lineAnimation {
+    100% { stroke-dashoffset: 0; }
+}
+
+@keyframes strokeHide {    
+    90% {
+        stroke-opacity: 1;
+        stroke: rgb(255, 255, 255);
+    }
+
+    100% {
+        stroke-opacity: 0;
+        stroke: rgb(255, 255, 255);
+    }
+}
+
+#pngImage {
+    opacity: 0;
+}
+
+#pngImage.run-animation {
+    animation: imgShow 2s 3.7s forwards linear;
+}
+
+@keyframes imgShow {
+    50% { opacity: 0; }
+
+    100% { opacity: 1; }
+}
+
+
+/* === Styling and Animating Banners === */
+#pinkDiv,
+#blueDiv {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 30% 0, 100% 100%, 0% 100%);
+    transform: translateX(-1200px);
+}
+
+#pinkDiv {
+    background: #0f2136;
+    width: 60%;
+}
+
+#blueDiv {
+    background: black;
+    width: 50%;
+}
+
+#pinkDiv.run-animation {
+    animation: bannerAnimation 1.6s 4.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+#blueDiv.run-animation {
+    animation: bannerAnimation 1s 4.2s linear forwards;
+}
+
+@keyframes bannerAnimation {
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+
+/* === Styling and Animating Restart Btn === */
+#restartBtn {
+    position: absolute;
+    bottom: 7%;
+    left: 14%;
+    transform: translateX(-1700px);
+    z-index: 9;
+    font-size: 50px;
+    font-family: 'Pacifico', cursive;
+    color: black;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+#restartBtn:hover {
+    color: #ea4946;
+}
+
+#restartBtn.run-animation {
+    animation: restartBtn-Animation 1s 5.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes restartBtn-Animation {
+    100% {
+        transform: translateX(0px);
+    }
+}
+        </style>
 </head>
 <!--/head-->
 
@@ -100,7 +209,7 @@
                 </div>
             </div>
         </div>
-        <div class="navbar navbar-inverse" role="banner">
+        <div id="navbar" class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -199,6 +308,60 @@
     </section>
     <!--/#home-slider-->
 
+
+    <section>
+        <div class="container">
+            <label class="switch-theme">
+                <input class="switch" type="checkbox" />
+                <div class="left">🌙</div>
+                <div class="right">☀️</div>
+                <div class="button"></div>
+            </label>
+            <div class="animation">
+                <svg viewBox="458 282.86 216 72.14" width="288" height="96.19">
+                    <defs>
+                        <filter id="gooey">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                                result="goo"></feColorMatrix>
+                            <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                        </filter>
+                        <filter id="lightshadow" x0="0%" y0="-250px" width="110%" height="110%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"></feGaussianBlur>
+                            <feOffset dy="0" dx="0"></feOffset>
+                            <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
+                            <feFlood flood-color="darkgray" flood-opacity="1"></feFlood>
+                            <feComposite in2="shadowDiff" operator="in"></feComposite>
+                            <feComposite in2="SourceGraphic" operator="over" result="firstfilter"></feComposite>
+                        </filter>
+                        <filter id="darkshadow" x0="0%" y0="-250px" width="110%" height="110%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"></feGaussianBlur>
+                            <feOffset dy="0" dx="0"></feOffset>
+                            <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
+                            <feFlood flood-color="black" flood-opacity="1"></feFlood>
+                            <feComposite in2="shadowDiff" operator="in"></feComposite>
+                        </filter>
+                    </defs>
+                    <g class="circles">
+                        <circle cx="494" cy="319" r="36"></circle>
+                        <circle cx="566" cy="319" r="36"></circle>
+                        <circle cx="638" cy="319" r="36"></circle>
+                        <path
+                            d="M531.83 319.67c.73-28.31 29.4-46.04 54-31 5.8 3.54 9.93 8.95 16 9 6.07.06 10.43-5.6 16-9 17.47-10.67 45.59-9.5 43 28-5.82 40.4-25.34 42.41-43 32-5.62-3.31-9.67-8.95-16-9-6.33-.05-10.3 5.28-16 9-20.19 12.7-53.94 1.44-54-29z">
+                        </path>
+                        <path
+                            d="M460 320c.73-28.31 29.39-46.04 54-31 5.8 3.54 9.93 8.95 16 9 6.07.05 10.43-5.6 16-9 17.47-10.67 45.59-9.5 43 28-5.83 40.4-25.35 42.41-43 32-5.62-3.32-9.67-8.95-16-9-6.33-.05-10.3 5.28-16 9-20.19 12.7-53.94 1.44-54-29z">
+                        </path>
+                    </g>
+                </svg>
+                <div class="dots"></div>
+            </div>
+            <a class="inspiration" href="https://www.instagram.com/catarsismusical.cr/" target="_blank" rel="noopener"><img
+                src="https://en.instagram-brand.com/wp-content/themes/ig-branding/prj-ig-branding/assets/images/ig-logo-black.svg"
+                alt="inspiration" /></a>
+        </div>
+    </section>
+
     <section id="services">
         <div class="container">
             <div class="row">
@@ -260,47 +423,35 @@
     </section>
     <!--/#action-->
 
+
+
     <section id="features">
         <div class="container">
             <div class="row">
-                <!-- <div class="single-features">
+                <div class="single-features">
                     <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <img src="images/banner_accionsr.png" class="img-responsive" alt="">
+                        <img src="http://www.voipinfo.net/images/ip-telephony.jpg" class="img-responsive" alt="">
                     </div>
                     <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <h2>Experienced and Enthusiastic</h2>
+                        <h2>IP Telephony Service</h2>
                         <P>Pork belly leberkas cow short ribs capicola pork loin. Doner fatback frankfurter jerky
                             meatball pastrami bacon tail sausage. Turkey fatback ball tip, tri-tip tenderloin drumstick
                             salami strip steak.</P>
                     </div>
-                </div> -->
-                <!-- <div class="single-features">
+                </div>
+                <div class="single-features">
                     <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms"
                         data-wow-delay="300ms">
-                        <h2>Built for the Responsive Web</h2>
+                        <h2>Security Instalations</h2>
                         <P>Mollit eiusmod id chuck turducken laboris meatloaf pork loin tenderloin swine. Pancetta
                             excepteur fugiat strip steak tri-tip. Swine salami eiusmod sint, ex id venison non. Fugiat
                             ea jowl cillum meatloaf.</P>
                     </div>
                     <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <img src="images/collage.jpg" class="img-responsive" alt="">
-                    </div>
-                </div> -->
-                <div class="single-features">
-                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <a target="_blank" href="https://www.slideshare.net/JoseAlejandroGomezCa/structured-programming-fundamentals-software-engineering-demo">
-                            <img src="images/STRUCTURAL PROGRAMMING FUNDAMENTALS copy.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <h2>Structural Programming Fundamentals</h2>
-                        <P>We are experienced and enthusiastic nerds.</P>
-                        <p>This eBook it's pointed to beginner engineers & more-advanced developers in order to catch the essence of Structured Programming
-                        Fundamentals (Java-based).</p>
-                        <br>
-                        <a href="https://www.slideshare.net/JoseAlejandroGomezCa/structured-programming-fundamentals-software-engineering-demo"><b>Go to eBoook (demo)!</b></a>
+                        <img src="https://www.protect24.net/Protect24/wp-content/uploads/2019/01/p24-homesecurity-img.jpg" class="img-responsive" alt="">
                     </div>
                 </div>
+
                 <hr width="100px" />
             </div>
         </div>
@@ -353,6 +504,74 @@
     
     <br><br><br>
 
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="single-features">
+                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <a target="_blank"
+                            href="https://www.slideshare.net/JoseAlejandroGomezCa/structured-programming-fundamentals-software-engineering-demo">
+                            <img src="images/STRUCTURAL PROGRAMMING FUNDAMENTALS copy.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2>Structural Programming Fundamentals</h2>
+                        <P>We are experienced and enthusiastic nerds.</P>
+                        <p>This eBook it's pointed to beginner engineers & more-advanced developers in order to catch the
+                            essence of Structured Programming
+                            Fundamentals (Java-based).</p>
+                        <br>
+                        <a
+                            href="https://www.slideshare.net/JoseAlejandroGomezCa/structured-programming-fundamentals-software-engineering-demo"><b>Go
+                                to eBoook (demo)!</b></a>
+                    </div>
+                </div>
+                <hr width="100px" />
+            </div>
+        </div>
+    </section>
+    <!--/#features-->
+
+
+<div id="wrapper" ontouchstart="">
+
+    <!-- Banners -->
+    <div id="pinkDiv"></div>
+    <div id="blueDiv"></div>
+
+    <!-- SVG silueta -->
+    <svg id="silueta" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 601 615.5">
+        <!--  png Image -->
+        <image id="pngImage" width="600" height="880" transform="translate(0 1.3)"
+            xlink:href="https://sites.google.com/site/naufragosf/_/rsrc/1472780705726/home/technologyobjects.png" />
+        <!-- left and right paths for silueta -->
+        <path id="path1"
+            d="M193,2.4c2-3,21.1,5.3,21.1,5.3,14,7.8,27.4,16.6,41.6,24.2,7.3,3.9,14.8,7.2,22.2,10.8,9.1,4.4,11.1,3.4,20.9,1.3,16.4-3.5,34.9-.2,47.5,11.3s18.8,24.1,21.8,39.4c1.4,7.3,5,7.3,11.7,10.7A200.8,200.8,0,0,1,400.6,117c32.3,21.6,36.2,58.1,14.2,89.1-10.1,14.3-23.7,24-39.2,32-5.5,2.9-16.7,6.3-3.6,8.7,3.6,2,12.9,9.6,13.9,13.7s-5.3,8.9-6.7,14.1.5,11.1.6,15.8-.1,9.3-.3,14c-.6,9.5-3.2,18.5-4.5,27.9a210.4,210.4,0,0,0-.4,47.6c15.6-4.9,30.2-16.1,42.2-26.6,10-8.6,23.9-19.9,29.7-32,3.1-6.2,4.7-12.9,8.4-19.1s10.2-10.3,16.6-14.2,14.3-3.4,21.6-5.6c5.3-1.6,8.8-.9,13,4.2,3.3-5.1,7.3.1,9.3,4.8,2.8,6.4,0,13.5,1.2,20.1a37.4,37.4,0,0,1,.2,12.9c-1.4,7.3-7.3,10.8-5.1,17.9.8,2.4,3.5,11.4,5.8,12.4s5.2-.2,8.1-.5c9.7-.9,10,5.2,13.6,13,7.5,15.8,15,31.5,22.1,47.4s14.4,32.2,21.2,48.4c2.8,6.5,4.7,13.2,7.7,19.5,2.1,4.3,10.6,14.6,9.1,18.7-.9,2.5-21.1,9-23.7,10.2-4.6,2-14.5,4.1-16.7,8.5s1.9,16.9,2.7,21.5c1.4,8.4,3.3,16.7,4.5,25.1-10.9-.5-23.2-1.4-33.9.7s-19,7-29.2,4.7c.3,6.5,2.3,8.2-3.8,8.7s-12-2.5-16.9-3.5c-11.3-2.2-22.8-2.7-34.2-4.4-12.9-2-25.8-7.2-38.4-11.1-5.7-1.8-11.3-3.6-17.1-5.2-3.1-.9-14.7-2.5-16.6-5.7-2.9-4.9,7-24.9,8.5-30.9,3.2-12.9,4.7-26.1,8-38.9,6.4-25.4,13.2-50.6,19.6-75.9-9.5,3.6-18.4,15.8-26.8,21.6s-20.3,11.5-30.1,17.8c0,0-16.2,10-22.2,1l2.5,8.8c5.1,14.3,11.7,27.6,16.2,42.1.9,2.8,1.5,5.8,2.9,8.4s3.4,2.9,4.1,5.7-.7,4.7.7,7.6,4.3,2.5,5.1,5.2-.7,4.5-.5,6.9,1.5,6.8,2.4,10.1c2.3,8.3,4.7,16.7,6.4,25.2a139.3,139.3,0,0,1,2.7,25.7l-.5,23.3" />
+        <path id="path2"
+            d="M193,2.4c-6,1-10.1,15.3-10.1,15.3-8.2,29.7-7.5,63-6.9,93.5.4,17.3,2.7,35.1,7.9,51.6,3.7,11.6,9.9,20.4,15,31,1.5,3.2,3.6,2.6,0,5.4-1.7,1.3-6,1.2-8.2,1.6a149.8,149.8,0,0,1-17.8,2.7,156,156,0,0,0-26.3,3.9c-4.6,1.1-17.4,4.9-20.2,8.9s-1.1,10.3-2.4,14.1c-4.9,15.4-8,31.6-7.8,47.8.2,9.1,1.4,17.8-.4,26.8-1.4,7.1-3.5,14.1-5.4,21-8-8.7-13.3-20.7-17.7-31.6-3.6-9-10.5-18.3-12.7-27.6s2.2-20.7.3-30.6c-.8-3.9-2-9.5-3.5-13.1s-5.1-5.8-6.6-9.7c8.9-1.5,3.6-10.4,1.9-16.9A29.4,29.4,0,0,0,66,184.9c-1.9-2.2-8.9-5.6-9.7-7.4s2.8-12.2,3.5-15c1.5-6.3,3-12.6,4.6-18.9.6-2.7,4.8-18.4-3.1-12.1-2.6,2-3.4,13.5-4.2,16.7-1.5,6.2-3,12.4-4.4,18.6-.8,3.4-.8,8.1-3.8,9.4-4.6,2-11.3-1.1-16.8,1.5s-8,6.1-11.4,10.1a37,37,0,0,0-3.8,4.2,13.7,13.7,0,0,0-2.4,4.5c-3.3,8,2.2,8.2,3.1,15.6-5.7-3.5-9.3-1.8-7.9,5.4.6,3.1,2.3,5.3,2.1,7.5s-2.7,4.3-2.6,7.4,2,3.2,1.7,5.4-3,3.7-2.1,7.8,4.5,5.3,5.6,8.1.7,6.5.5,9.9c-.2,6.5-1,13.7,0,20s3.9,5.8,10.2,7a171.4,171.4,0,0,0,22.6,2.3c5.5.2,1.7-3,6.4.6,2,1.6,3.7,5.7,4.8,7.9C73.5,330,80.8,361,99.6,387.5c7.2,10.2,19.2,32,33.5,25.9s19.1-17.3,23.4-31.7c1.2,4.1.9,9.1,2.5,13.3s2.8,5.5,4.3,8.8c2.8,6.2,3.8,15.6,4.9,22.3s-1.5,7-3.3,12.6.6,11.9.3,17.1-1.4,12.7-1.8,19.1-2,13-1.4,19.2,3.1,12.1,3.1,18.5c.1,4.7,1.7,9.6,1.6,14s-3.1,7.6-2.5,12.4c.3,2.4,2.5,4.8,2.7,6.8s-1,2.1-1,3.2a55.4,55.4,0,0,1-.7,10c-.2,1.5-2.2,3.9-2.6,5.4a4.5,4.5,0,0,0-2,2.3l.8,2c-.7,2.6,0,5.1-1.1,8.5a235.8,235.8,0,0,0-9,37.3H374" />
+
+        <!--  holes in silueta -->
+        <g id="holes">
+            <path
+                d="M485.2,301.2c2.1.3,2.1.3,3.5-1.3s3.7-3.9,5.4-6a23,23,0,0,0,2.5-4.3c.3-.5-.1-1.4-.2-2.1l-2.2.5c-.3.2-.5.7-.8,1.1a15.4,15.4,0,0,1-2.8,2.9c-2,1.3-4.2,2.2-6.2,3.3-4.1,2.3-8.2,4.5-12.3,6.9a1.9,1.9,0,0,0-.5,1.3c0,.2.7.7,1,.6,3.1-.5,6.4-.3,9.3-2A17.8,17.8,0,0,1,485.2,301.2Z" />
+            <path d="M507.6,339.4a1.7,1.7,0,0,0-1.1,2.4l3.5,11.9a1,1,0,0,0,.4.8l4.5,1Z" />
+            <path d="M501.3,344.1l-3.2,1.5,3.6,7.3c.9,1.8,1.5,2.1,3.9,1.4Z" />
+            <path
+                d="M499.4,353.9l-3-6.1c-.3-.6-.3-1.6-1.5-1.3s-1.8.7-1.8,2,0,2.9.1,4.3a1.4,1.4,0,0,0,.9,1.1C495.8,354,497.5,353.9,499.4,353.9Z" />
+            <path
+                d="M507,294.1h-.6c.5,3-1.6,5-2.9,7.2,1.3.8,2.1.6,2.5-.7a28.1,28.1,0,0,0,1-3.1C507.1,296.3,507,295.2,507,294.1Z" />
+        </g>
+    </svg>
+
+    <!-- button for restart Animation -->
+    <div id="restartBtn">Autorized Distributor</div>
+</div>
+
+
+
+<br><br><br>
+
     <section id="clients">
         <div class="container">
             <div class="row">
@@ -384,6 +603,10 @@
         </div>
     </section>
     <!--/#clients-->
+
+
+
+
 
     <footer id="footer">
         <div class="container">
@@ -469,6 +692,47 @@
     </footer>
     <!--/#footer-->
 
+    <script>
+        
+        window.addEventListener("load", function () {
+            document.body.className = 'light';
+
+            document.
+                querySelector('.switch').
+                addEventListener('change', event => {
+                    document.body.className = event.target.checked ? 'dark' : 'light';
+                    $('#header').toggleClass('dark-header');
+                    $('#navbar').toggleClass('dark-header');
+                });
+
+
+
+
+
+                //js code for start/restart Animations
+
+            var startBtn = document.querySelector("#clickMe");
+            var elements = [document.getElementById("path1"), document.getElementById("path2"), document.getElementById("holes"), document.getElementById("pngImage"), document.getElementById("pinkDiv"), document.getElementById("blueDiv"), document.getElementById("silueta"), document.getElementById("restartBtn")]
+
+            function start() {
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].classList.remove("run-animation");
+                }
+                window.requestAnimationFrame(function () {
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].classList.add("run-animation");
+                    }
+                });
+            }
+            start()
+
+            document.getElementById("restartBtn").addEventListener("click", function () {
+                start()
+            }, false);
+        });
+
+
+    </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
