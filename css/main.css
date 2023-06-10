@@ -771,8 +771,14 @@ ul.sub-menu {
 }
 
 .clients-logo {
+  margin: 50px 0;
   overflow: hidden;
-  margin-bottom: 10px;
+}
+
+.clients-logo div a img {
+  margin: 0 auto;
+  width: 100px;
+  text-align: center;
 }
 
 /*************************
@@ -2519,7 +2525,7 @@ span.stButton_gradient,
 }
 
 #subscribe {
-  background-color: #565656;
+  background-color: #0f2136;
   color: #ffffff;
   padding: 40px 0 50px;
 }
