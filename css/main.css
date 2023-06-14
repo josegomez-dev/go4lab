@@ -31,13 +31,13 @@ html {
 }
 
 a {
-  color: #0f2136;
+  color: #afbfd2;
 }
 
 a:hover {
   outline: none;
   text-decoration: none;
-  color: #afbfd2;
+  color: #0f2136;
 }
 
 a:focus {
@@ -443,6 +443,7 @@ ul.sub-menu {
   padding-left: 25px;
   padding-right: 30px;
   position: relative;
+  font-size: 12px;
   border-left: 0;
   margin-bottom: 0;
 }
