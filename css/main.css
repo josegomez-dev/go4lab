@@ -808,14 +808,14 @@ ul.sub-menu {
   height: 85px;
 }
 
-.tour-button {
+/* .tour-button {
   background-image: url(../svg/noun_innovation_49908.svg);
   height: 100%;
   background-repeat: no-repeat;
   position: absolute;
-  width: 100%;
-  background-position: 180px 15px;
-}
+  width: 75%;
+  background-position: 180px -5px;
+} */
 
 .team-single {
   position: relative;
