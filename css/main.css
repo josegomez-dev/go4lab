@@ -251,13 +251,14 @@ h3 {
   background: none;
 }
 
+#header {
+  background: #333;
+}
+
 #header .navbar {
-  background: #fff;
+  background: #333;
   border: 0;
   margin-bottom: 0;
-}
-#header .dark-header {
-  background: black;
 }
 
 #header .navbar-toggle {

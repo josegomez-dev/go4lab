@@ -109,10 +109,13 @@ svg {
   filter: url('#lightshadow');
 }
 .dark {
-  background-color: #333;
+  background-color: #818285;
+}
+#header .dark-header {
+  background: #333;
 }
 .dark-header {
-  background: black;
+  background: #333;
 }
 #restartBtn {
   color: white !important;
