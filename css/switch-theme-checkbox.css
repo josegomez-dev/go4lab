@@ -20,7 +20,7 @@ label.switch-theme {
   width: 96px;
   height: 48px;
   border-radius: 25px;
-  background-color: whitesmoke;
+  background-color: #0b2e59;
   cursor: pointer;
   overflow: hidden;
   transform: scale(0.6);
@@ -109,13 +109,16 @@ svg {
   filter: url('#lightshadow');
 }
 .dark {
-  background-color: #818285;
+  background-color: #0b2e59;
+  color: white;
 }
 #header .dark-header {
   background: #333;
+  color: white;
 }
 .dark-header {
   background: #333;
+  color: white;
 }
 #restartBtn {
   color: white !important;
