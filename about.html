@@ -22,6 +22,194 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <style>
+            :root {
+                --background: #f5f6fa;
+                --btn: #dcdde1;
+                --btn-text-hover: #dcdde1;
+                --btn-fill: transparent;
+                --header-bkg: #afbfd2;
+                --bio-text: #fff;
+                --bio-bkg: #0f2136;
+                --bio-bkg-hover: gold;
+                --name-text: #2c3a47;
+                --name-text-hover: #0b2e59;
+            }
+        
+            .team-nav {
+                position: fixed;
+                z-index: 999;
+                display: flex;
+                padding: 0.25rem 2rem;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                background: var(--nav-bkg);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(4px);
+                border: 1px solid var(--nav-border);
+            }
+        
+            .team-nav a {
+                text-decoration: none;
+                color: var(--nav-logo);
+            }
+        
+            .team-nav a h1 {
+                font-size: 3rem;
+                font-weight: 300;
+                letter-spacing: 1px;
+            }
+        
+            .page-title {
+                color: var(--page-title);
+                font-size: 4rem;
+                margin-bottom: 5rem;
+                margin-top: 0;
+            }
+        
+            .leadership {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        
+            @media (min-width: 32em) {
+                .leadership {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        
+            @media (min-width: 50em) {
+                .leadership {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        
+            .leadership .leader {
+                width: 100%;
+                box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+            }
+        
+            @media (min-width: 32em) {
+                .leadership .leader {
+                    max-width: 300px;
+                }
+            }
+        
+            .leadership .leader:hover {
+                cursor: pointer;
+            }
+        
+            .leadership .leader:hover .leader__bio {
+                background-color: var(--bio-bkg-hover);
+            }
+        
+            .leadership .leader:hover .leader__img img {
+                transform: scale(140%);
+                filter: saturate(100%);
+            }
+        
+            .leadership .leader:hover .leader__name {
+                color: var(--name-text-hover);
+            }
+        
+            .leadership .leader__header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 80px;
+                background: var(--header-bkg);
+                color: #fff;
+            }
+        
+            .leadership .leader__exp {
+                display: flex;
+                align-items: center;
+                font-size: 1.5rem;
+                padding: 1rem 2rem;
+            }
+        
+            .leadership .leader__exp .years {
+                font-size: 5rem;
+                margin-right: 8px;
+                font-weight: 700;
+            }
+        
+            .leadership .leader__bio {
+                padding: 1.5rem 2rem;
+                font-size: 2.5rem;
+                text-decoration: none;
+                color: var(--bio-text);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                background: var(--bio-bkg);
+                transition: 0.2s all ease-in-out;
+            }
+        
+            .leadership .leader__img {
+                overflow: hidden;
+                width: 100%;
+                height: 300px;
+                position: relative;
+            }
+        
+            .leadership .leader__img img {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+                width: 100%;
+                filter: saturate(0%);
+                transform: scale(130%);
+                transition: 0.2s all ease-in-out;
+            }
+        
+            .leadership .leader__name {
+                text-align: center;
+                padding: 1.5rem;
+                font-size: 2rem;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.2s all ease-in-out;
+                color: var(--name-text);
+            }
+        
+            @media (min-width: 32em) {
+                .leadership .leader__name {
+                    font-size: 1.5rem;
+                }
+            }
+        
+            @media (min-width: 50em) {
+                .leadership .leader__name {
+                    font-size: 2rem;
+                }
+            }
+        
+            .leadership .leader__name h2 {
+                font-size: 2.5rem;
+            }
+        
+            @media (min-width: 32em) {
+                .leadership .leader__name h2 {
+                    font-size: 2rem;
+                }
+            }
+        
+            @media (min-width: 50em) {
+                .leadership .leader__name h2 {
+                    font-size: 2.5rem;
+                }
+            }
+        </style>
  </head>
 <!--/head-->
 <body>
@@ -74,9 +262,10 @@
                             </ul>
                         </li> -->
                         <li><a href="portfolio.html">Portafolio</a></li>
-                        <li><a target="_blank" href="https://go4lab.bigcartel.com/">Go4Store</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li class="active"><a href="#">Nosotros</a></li>
+                        <!-- <li><a target="_blank" href="https://go4lab.bigcartel.com/">Go4Store</a></li> -->
+                        <!-- <li><a href="blog.html">Blog</a></li> -->
+                        <li><a href="services.html">Servicios</a></li>
+                        <li class="active"><a href="about.html">Nosotros</a></li>
                     </ul>
                 </div>
                 <div class="search">
@@ -109,8 +298,13 @@
                 <div class="row">
                     <div class="action take-tour">
                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <h1 class="title title-white">Nosotros</h1>
-                            <p class="primary-color">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus sit modi qui quasi nemo. At temporibus obcaecati quam. Provident ipsam perferendis doloribus perspiciatis temporibus magni recusandae mollitia beatae, neque a!</p>
+                            <h1 class="title title-white">Equipo de Trabajo</h1>
+                            <p class="primary-color">
+                                Nuestra pasión por la innovación se refleja en cada proyecto que emprendemos. No somos simplemente un equipo, somos un
+                                conjunto de mentes creativas que buscan constantemente superar los límites convencionales. ¿Nuestra especialidad? ¡Todo
+                                lo relacionado con la tecnología!
+                            </p>
+                            <br/>
                         </div>
                     </div>
                 </div>
@@ -122,22 +316,142 @@
     <section>
         <div class="container">
             <div class="row">
+    
+                <h2>Nosotros:</h2>
                 <div class="col-sm-12">
-                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                        
+    
+    
+                    <div>
+                        <div class="leadership">
+    
+                            <div class="leader">
+                                <div class="leader__header">
+                                    <div class="leader__exp">
+                                        <span class="years">10</span>
+                                        <span>years with Go4Lab</span>
+                                    </div>
+                                    <a href="#" class="leader__bio">Bio</a>
+                                </div>
+                                <div class="leader__img">
+                                    <img src="images/team/elias.png"
+                                        alt="Sammy Cotillard">
+                                </div>
+                                <div class="leader__name">
+                                    <h2>Luis Elias Gómez</h2>
+                                    <p><em>Software Engineer</em></p>
+                                </div>
+                            </div>
+                            <div class="leader">
+                                <div class="leader__header">
+                                    <div class="leader__exp">
+                                        <span class="years">10</span>
+                                        <span>years with Go4Lab</span>
+                                    </div>
+                                    <a href="#" class="leader__bio">Bio</a>
+                                </div>
+                                <div class="leader__img">
+                                    <img src="https://autoreseditores.s3.amazonaws.com/images/autor/000031740.jpeg"
+                                        alt="Sammy Cotillard">
+                                </div>
+                                <div class="leader__name">
+                                    <h2>José A. Gómez</h2>
+                                    <p><em>Founder & CEO</em></p>
+                                </div>
+                            </div>
+                            <div class="leader">
+                                <div class="leader__header">
+                                    <div class="leader__exp">
+                                        <span class="years">10</span>
+                                        <span>years with Go4Lab</span>
+                                    </div>
+                                    <a href="#" class="leader__bio">Bio</a>
+                                </div>
+                                <div class="leader__img">
+                                    <img src="https://media.licdn.com/dms/image/C4E03AQGSjDD79Yxvfg/profile-displayphoto-shrink_800_800/0/1548433225331?e=2147483647&v=beta&t=ej0HyCmMEbmX9FEZtn0E3QvsuVHR835tTn6qJ0BFn5s"
+                                        alt="Sammy Cotillard">
+                                </div>
+                                <div class="leader__name">
+                                    <h2>Marvin Calvo</h2>
+                                    <p><em>Video Game Developer (Unity)</em></p>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
 
+    <br/>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <h2>Gracias por llegar hasta aqui!</h2>
+                <div class="col-sm-12">
+                    <div>
+                        <p>
+                            En cada proyecto, buscamos no solo cumplir con las expectativas, sino superarlas. Si buscas un
+                            equipo que abrace
+                            la
+                            innovación y transforme tus ideas en realidad, <b>Go4Lab</b> es tu socio ideal.
+                        </p>
+                        <p>
+                            Únete a nosotros en este emocionante viaje donde la creatividad y la tecnología convergen para
+                            dar forma al
+                            futuro.
+                            ¡Bienvenido a <b>Go4Lab</b>!
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <br /><br /><br />
+
     <footer id="footer">
         <div class="container">
             <div class="row">
+                <!-- <div class="col-sm-12 text-center bottom-separator">
+                        <img src="images/hero_banner_blue.png" class="img-responsive inline" alt="">
+                    </div> -->
+                <div class="col-md-4 col-sm-6">
+
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="contact-form bottom">
+                        <h2>Escribenos un mensaje!</h2>
+                        <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" required="required"
+                                    placeholder="Nombre">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" required="required"
+                                    placeholder="Correo electronico">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" rows="8"
+                                    placeholder="Inserta texto aqui..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                
+                </div>
+
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <img width="100px" class="text-center" src="images/logotipo.png" class="img-responsive" alt=""> <br /><br />
+                        <img width="100px" class="text-center" src="images/logotipo.png" class="img-responsive" alt="">
+                        <br /><br />
                         <p>&copy; Go4Lab 2023. Derechos reservados.</p>
                     </div>
                 </div>
@@ -155,7 +469,6 @@
     <script>
         window.addEventListener("load", function () {
             document.body.className = 'light';
-
             document.
                 querySelector('.switch').
                 addEventListener('change', event => {
