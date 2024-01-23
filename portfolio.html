@@ -15,7 +15,6 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/banner.css" rel="stylesheet">
-    <link href="css/switch-theme-checkbox.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/gallery-showcase.css">
     <link rel="stylesheet" href="css/gallery-highlight-projects.css">
@@ -95,17 +94,6 @@
     </header>
     <!--/#header-->
 
-    <section>
-        <div class="container">
-            <label class="switch-theme">
-                <input class="switch" type="checkbox" />
-                <div class="left">🌙</div>
-                <div class="right">☀️</div>
-                <div class="button"></div>
-            </label>
-        </div>
-    </section>
-
     <section id="action" class="responsive">
         <div class="vertical-center">
             <div class="container">
@@ -137,10 +125,12 @@
                 <img class="gallery-item-img" src="images/projects/hq720.jpg"
                     alt="">
                 <div class="text">
-                    <h3>ACCIONSR</h4>
-                        <p>Short Description</p>
+                    <p>
+                        AcciónSR es la plataforma ideal para publicitar su negocio.
+                    </p>
+                    <a href="https://www.camtic.org/actualidad-tic/jovenes-crean-app-que-se-convierte-en-guia-y-medio-de-promocion-para-fiestas-patronales">Universidad Cenfotec | Comunicado de prensa <br/> <b>boletinclic@camtic.org</b></a>
                 </div>
-                <div class="button">Learn More</div>
+                <div class="button">Leer mas...</div>
             </div>
     
             <div class="item" id="2">
@@ -148,7 +138,7 @@
                     alt="">
                 <div class="text">
                     <h3>APPNEA</h4>
-                        <p>Short Description</p>
+                    <p>Dispositivo Bio-Medico y Plataforma Virtual para controlar la APNEA.</p>
                 </div>
                 <div class="button">Learn More</div>
             </div>
@@ -158,7 +148,7 @@
                     alt="">
                 <div class="text">
                     <h3>Space APPS | International Challenge</h4>
-                        <p>Short Description</p>
+                    <p>Short Description</p>
                 </div>
                 <div class="button">Learn More</div>
             </div>
@@ -167,8 +157,10 @@
                 <img class="gallery-item-img" src="images/projects/Game Board v1 (Board 1).jpg"
                     alt="">
                 <div class="text">
-                    <h3>Catarsis Musical | Learn Musical Improvisation</h4>
-                        <p>Short Description</p>
+                    <h3>El Camino Musical</h4>
+                    <p>
+                        ¡Descubramos juntos el maravilloso mundo de la improvisación! <br /> 
+                    </p>
                 </div>
                 <div class="button">Learn More</div>
             </div>
@@ -177,8 +169,10 @@
                 <img class="gallery-item-img" src="images/projects/giants-welcome.jpg"
                     alt="">
                 <div class="text">
-                    <h3>SAGAS LAB</h4>
-                        <p>Short Description</p>
+                    <h3>SAGA GIGANTES</h4>
+                    <p>
+                        <b>En Sagalab estamos creando nuevos mundos para educación.</b> 
+                    </p>
                 </div>
                 <div class="button">Learn More</div>
             </div>
@@ -204,7 +198,7 @@
                     <h3 id="title"></h3>
                     <p id="info">Some text</p>
                     <div class="button" id="live">View</div>
-                    <i class="fab fa-github-square" id="github"></i>
+                    <!-- <i class="fab fa-github-square" id="github"></i> -->
                 </div>
             </div>
         </div>
@@ -289,16 +283,16 @@
     <script>
         var modalInfo = {
             1: {
-                title: "APPNEA DEVICE",
-                info: "...",
-                link: "https://josegomezdev.medium.com/kap%C3%B6kw%C3%A3-appnea-hwthon-2018-7ff31b13904c",
-                github: "#"
+                title: "ACCIONSR",
+                info: `AcciónSR es la plataforma ideal para publicitar su negocio. <br/> <a href="https://www.camtic.org/actualidad-tic/jovenes-crean-app-que-se-convierte-en-guia-y-medio-de-promocion-para-fiestas-patronales">Universidad Cenfotec | Comunicado de prensa <br/> <b>boletinclic@camtic.org</b></a>   <a target="_blank" href="https://www.instagram.com/accionsr"><i class="fa fa-instagram"></i></a>`,
+                link: "https://www.instagram.com/accionsr/",
+                // github: ""
             },
             2: {
-                title: "HARDWARETHON 2018 - KAPÖKWÃ (2nd place)",
-                info: "...",
-                link: "#",
-                github: "#"
+                title: "APPNEA",
+                info: "Dispositivo Bio-Medico y Plataforma Virtual para controlar la APNEA.",
+                link: "https://josegomezdev.medium.com/kap%C3%B6kw%C3%A3-appnea-hwthon-2018-7ff31b13904c",
+                // github: "#"
             },
             3: {
                 title: "AccionSR APP",
@@ -307,22 +301,22 @@
                 github: "#"
             },
             4: {
-                title: "Project 4",
-                info: "....",
-                link: "#",
-                github: "#"
+                title: "El Camino Musical",
+                info: `¡Descubramos juntos el maravilloso mundo de la improvisación! <br/> <a href="https://josegomez-dev.github.io/catarsismusical/games/musical-path.html">Catarsis Musical</a>`,
+                link: "https://play.google.com/store/apps/details?id=com.americapixelgames.musicalpath&pcampaignid=web_share&pli=1",
+                // github: "#"
             },
             5: {
-                title: "Project 5",
-                info: "...",
-                link: "#",
-                github: "#"
+                title: "SAGA GIGANTES",
+                info: "En Sagalab estamos creando nuevos mundos para educación. <p>Cada una de las sagas en nuestro laboratorio es una experiencia educativa que los profesores pueden asignar como tarea o examen.</p>",
+                link: "https://app.sagalab.info/homepage",
+                // github: "#"
             },
             6: {
                 title: "Project 6",
                 info: "...",
                 link: "#",
-                github: "#"
+                // github: "#"
             }
         };
 
@@ -358,9 +352,9 @@
             document.getElementById("live").onclick = function () {
                 window.open(modalInfo[id].link, '_blank');
             }
-            document.getElementById("github").onclick = function () {
-                window.open(modalInfo[id].github, '_blank');
-            }
+            // document.getElementById("github").onclick = function () {
+            //     window.open(modalInfo[id].github, '_blank');
+            // }
         }
 
         // close the modal
