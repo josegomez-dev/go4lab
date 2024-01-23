@@ -11,6 +11,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 
+@media all and (min-width:481px) {
+  .only-for-mobile {
+    display: none;
+  }
+}
+
 html,
 body {
   max-width: 100%;
